@@ -4,6 +4,7 @@
 
 # load libraries
 library(ggplot2)
+library(dplyr)
 
 # Functions ####################################################################
 # beta as a funciton of R0
@@ -34,6 +35,18 @@ beta_func_all <- function(R0, sigma, gamma_A, gamma_M, gamma_S, gamma_Mabx, gamm
 
 # R (effective) as a function of q
 R_eff_func <- function(q) {
+  beta * (
+    (p_A*nu_A / gamma_A) +
+      (p_MU*nu_M/alpha_M) + (p_MT*nu_M / ((1-q)*alpha_M + q*delta*tau)) +
+      (p_MU + (p_MT*(1-q)*alpha_M / ((1-q)*alpha_M + q*delta*tau))) * (nu_sh*nu_M / (gamma_M + mu_M)) +
+      p_MT * (q*delta*tau / ((1-q)*alpha_M + q*delta*tau)) * (nu_abx*nu_M / gamma_Mabx) +
+      (p_SU / alpha_S) + (p_ST / tau) +
+      p_SU * (nu_sh / (gamma_S + mu_S)) + p_ST * (nu_abx / gamma_Sabx)
+  )
+}
+
+# R (effective) as a function of q and beta
+R_eff_func_qbeta <- function(q, beta) {
   beta * (
     (p_A*nu_A / gamma_A) +
       (p_MU*nu_M/alpha_M) + (p_MT*nu_M / ((1-q)*alpha_M + q*delta*tau)) +
@@ -186,11 +199,31 @@ D_inf_func_q <- function(q) {
   }
 }
 
+# R_abx_inf as a function of q (via R_eff) and beta
+R_abx_inf_func_qbeta <- function(q, beta) {
+  R_eff <- R_eff_func_qbeta(q, beta)
+  
+  if(R_eff < 1) {
+    return(0)
+  } else {
+    S_inf_func <- function(S_inf) { S_inf - exp(R_eff*(S_inf - 1)) }
+    S_inf <- uniroot(S_inf_func, c(0.00001,0.9999))$root
+    
+    return(
+      (q*delta*tau*(sigma*p_MT / ((1-q)*alpha_M + q*delta*tau)) +
+         (sigma*p_ST)
+      ) * (1/R_eff) * (log(N) - log(S_inf))
+    )
+  }
+}
+
 
 # Build data set ###############################################################
 # load Sharia's parameters
 # setwd(dirname(rstudioapi::getSourceEditorContext()$path))
-load("~/Downloads/used.param.Rdata")
+# load("~/Downloads/used.param.Rdata")
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+load("used.param.Rdata")
 params <- used.param
 params_df <- params$`prop.m.abx=0.5`
 
@@ -422,8 +455,8 @@ plot_grid(plot.A, plot.B, legend, nrow = 1, rel_widths = c(1,1,0.15), labels = c
 
 # Attempts with other color palettes (Lindsay and Mac experimenting)
 
-# Solve R0 threshold to check ##################################################
-R0_thld <- (p_A*nu_A/gamma_A +
+# Solve R_opt to check #########################################################
+R_opt <- (p_A*nu_A/gamma_A +
               (p_MU+p_MT)*nu_M*(1/alpha_M + nu_sh/(gamma_M+mu_M)) +
               p_SU*(1/alpha_S + nu_sh/(gamma_S+mu_S)) +
               p_ST*(1/tau + nu_abx/gamma_Sabx)
@@ -434,7 +467,7 @@ R0_thld <- (p_A*nu_A/gamma_A +
      p_SU*(1/alpha_S + nu_sh/(gamma_S + mu_S)) +
      p_ST*(1/tau + nu_abx/gamma_Sabx)
   )
-R0_thld # check that this is 1.31538
+R_opt # check that this is 1.31538
 
 
 # Adding thresholds to plots ###################################################
@@ -483,6 +516,23 @@ for(R_0 in thresholds_df$R0){
   thresholds_df$prop_stop[thresholds_df$R0 == R_0] <- proportion_treated(stop_q)
 }
 
+# Solve R_dut to check #########################################################
+rev_q_thresh_func <- function(R_0) {
+  R_eff <- R_eff_func_qbeta(1, beta_func(R_0))
+  
+  if(R_eff >= 1) {
+    S_inf_func_q <- function(S_inf_q) { S_inf_q - exp(R_eff*(S_inf_q - 1)) }
+    S_inf_q <- uniroot(S_inf_func_q, c(0.00001,0.9999))$root
+  } else {
+    S_inf_q <- 0.999
+  }
+  
+  return(R_abx_inf_func_qbeta(0, beta_func(R_0)) - R_abx_inf_func_qbeta(1, beta_func(R_0)))
+}
+R_dut <- uniroot(rev_q_thresh_func, c(1.3,1.4))$root
+R_dut # check that this is 1.399602
+
+
 # plot thresholds by R0 vs. proportion treated
 # fix data set the silly way for ggplot to work
 thresholds_df <- rbind(thresholds_df, thresholds_df)
@@ -501,8 +551,8 @@ ggplot(thresholds_df) +
   geom_line(aes(x = R0, y = prop, color = prop_type), size = 2) +
   scale_color_manual(values = c("#004F63FF", "#EE8577FF"), labels = c("Dose Utilization\nThreshold\n", "Outbreak Prevention\nThreshold")) +
   theme_cowplot() +
-  geom_vline( aes(xintercept = R0_thld), color = "#EE8577FF", lty = "dashed", size = 1.1) +
-  geom_vline( aes(xintercept = 1.4), color = "#004F63FF", lty = "dashed", size = 1.1) +
+  geom_vline( aes(xintercept = R_opt), color = "#EE8577FF", lty = "dashed", size = 1.1) +
+  geom_vline( aes(xintercept = R_dut), color = "#004F63FF", lty = "dashed", size = 1.1) +
   xlim(1,1.45) +
   #background_grid(minor = c("xy")) +
   labs(y="Proportion of Moderates Treated", x=expression(R[0]), color="Threshold Type:") +
