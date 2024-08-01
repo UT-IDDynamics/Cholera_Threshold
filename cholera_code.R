@@ -336,7 +336,7 @@ gamma_M <- mean(df_out$gamma_M)
 gamma_S <- mean(df_out$gamma_S)
 gamma_Mabx <- mean(df_out$gamma_Mabx)
 gamma_Sabx <- mean(df_out$gamma_Sabx)
-mu_M <- mean(df_out$mu_M)
+mu_M <- 0.01 #mean(df_out$mu_M)
 mu_S <- mean(df_out$mu_S)
 alpha_M <- mean(df_out$alpha_M)
 alpha_S <- mean(df_out$alpha_S)
@@ -451,7 +451,9 @@ plot.legend <- ggplot() +
 
 legend<- cowplot::get_plot_component(plot.legend, "guide-box", return_all = TRUE)[[1]] 
 
+#png("Cholera_Figure1.png", width=800, height=400)
 plot_grid(plot.A, plot.B, legend, nrow = 1, rel_widths = c(1,1,0.15), labels = c("A", "B", ""))
+#dev.off()
 
 # Attempts with other color palettes (Lindsay and Mac experimenting)
 
@@ -544,6 +546,7 @@ thresholds_df$prop_type <- rep(c("Reduced Doses", "Transmission Stopped"), each 
 
 # flipping it makes more sense for the discussion
 #pdf("thresh_lines.pdf", width=6, height=6)
+#png("Cholera_Figure2.png", width=700, height=600)
 ggplot(thresholds_df) +
   geom_ribbon(aes(y = prop_less_doses, xmin = 1, xmax = R0), fill="#004F63FF", alpha=0.5) +
   geom_ribbon(aes(y = prop_stop, xmin = 1, xmax = R0), fill="white", alpha=1) +
