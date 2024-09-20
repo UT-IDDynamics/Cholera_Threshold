@@ -30,7 +30,7 @@ All source code used to generate the results and figures in the paper are in the
 
 ## A Theoretical Framework to Quantify the Tradeoff Between Individual and Population Benefits of Expanded Antibiotic Use
 
-by Cormac R. LaPrete, Sharia M. Ahmed, Damon J.A. Toth, Jody R. Reimer, Valerie M. Vaughn, Frederick R. Adler, Lindsay T. Keegan
+by Cormac LaPrete, Sharia Ahmed, Damon Toth, Jody Reimer, Valerie Vaughn, Frederick Adler, Lindsay Keegan
 
 ## Abstract
 
@@ -38,7 +38,7 @@ The use of antibiotics during a disease outbreak presents a critical tradeoff be
 
 ## Software implementation
 
-All source code used to generate the results and figures in the paper are in the `code` folder. 
+All source code used to generate the results and figures in the paper are in the `AppliedFrmwk/code` folder. 
 
 
 
