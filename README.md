@@ -34,11 +34,11 @@ by Cormac LaPrete, Sharia Ahmed, Damon Toth, Jody Reimer, Valerie Vaughn, Freder
 
 The global rise in antibiotic resistance poses a significant public health threat, that adds complexity to the clinical challenge of ensuring that the right antibiotic is prescribed to the right patient at the right dose for the right duration, to maximize benefits and minimize harm. Antibiotic resistance necessitates balancing the potential benefits and risks of antibiotic use for individual patients alongside broader implications for public health. While antibiotics have clear individual harms and benefits, it has been primarily thought that the impact of antibiotic prescribing at the population-level may be limited to the adverse effects of the development of resistence. Here, we propose that there may be scenarios under which prescribing antibiotics benefits public health; an idea absent from most antibiotic discourse (Figure 3).
 
-![Figure3](images/CholeraEpiModel.png)
+![Figure3](images/F1.large.jpg)
 
 We demonstrate a mechanism by which antibiotic use can offer population-level benefits through reduced transmission as a result of antibiotic treatment. That is, treating highly infectious individuals who may not require treatment to recover can reduce overall disease transmission, resulting in fewer total cases and/or fewer total antibiotic doses over the course of an outbreak. We explore this using cholera as a case study. In this paper, we analytically solve for two thresholds to characterize these tradeoffs and use simulation to identify the conditions under which expanded antibiotic treatment to include moderate cholera infections presents a population-level benefit by reducing cholera transmission, outbreak persistence, and total antibiotic use. We identify the conditions under which these thresholds occur. We show that $\mathcal{R}(q) \leq \mathcal{R}_{opt} = 1. 424$, below which treating moderate infections can reduce the effective reproductive number below 1, stopping the outbreak before it can spread. Similarly, when $\mathcal{R}(q = 0) \mathcal{R}_{dut} = 1.533$, treating moderate infections results in fewer doses used over the course of the outbreak than under current treatment guidelines (Figure 4). Because the range of reproductive numbers for cholera outbreaks is 1.1-2.7, only outbreaks with low to intermediate reproductive numbers can benefit from expanded antibiotic treatment.
 
-![Figure4](images/CholeraEpiModel.png)
+![Figure4](images/F4.large.jpg)
 
 
 ### Abstract
