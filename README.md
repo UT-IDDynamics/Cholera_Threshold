@@ -46,7 +46,7 @@ The global rise in antibiotic resistance poses a significant public health threa
 
 
 <div align="center">
-  <img src="images/F1.large.jpg" alt="Figure3" width="500"/>
+  <img src="images/F1.large.jpg" alt="Figure3" width="800"/>
   <p><em>Figure 3: Schematic of individual and population-level harms and benefits of antibiotic use. The horizontal axis describes the individual (patient-level) and population-level impacts and the vertical axis describes the benefits (positive impacts) and harms (negative impacts) of antibiotic usage.
 </em></p>
 </div>
@@ -55,7 +55,7 @@ We demonstrate a mechanism by which antibiotic use can offer population-level be
 
 
 <div align="center">
-  <img src="images/images/F4.large.jpg" alt="Figure4" width="500"/>
+  <img src="images/F4.large.jpg" alt="Figure4" width="500"/>
   <p><em>Figure 4: Plot of the threshold values for dose reduction (DUT) and outbreak prevention (OPT), by $\mathcal{R}(q = 0)$, for each proportion of moderates treated ($M_{abx}$). For a each value of $\mathcal{R}(q = 0)$, the pink curve shows the OPT of $\mathcal{R}(q = 0)$ and $M_{abx}$, the shaded region above the curve shows all combinations of $\R0$ and $M_{abx}$ in which treating moderate infections reduces the effective reproductive number, $\mathcal{R}(q)$, below 1. The dotted red line indicates $\mathcal{R}_{opt}$ for cholera. The blue curve shows the DUT of $\mathcal{R}(q = 0)$ and $M_{abx}$, the shaded region above the curve shows all combinations of of $\mathcal{R}(q = 0)$ and $M_{abx}$ in which fewer doses are given overall with expanded treatment. The dotted blue line indicates $\mathcal{R}_{dut}$ for cholera. Outside of these regions, in the white space, there is no outcome improvement.
 </em></p>
 </div>
