@@ -26,11 +26,32 @@ Through simulation, we show that expanding treatment guidelines to include moder
 
 
 <div align="center">
-  <img src="images/CholeraEpiResults.png" alt="Figure2" width="500"/>
+  <img src="images/CholeraEpiResults.png" alt="Figure2" width="1200"/>
 </div>
 
 Figure 2: Plot of population-level impact of expanded antibiotic treatment guidelines. Each plot shows the proportion of infections averted by the proportion of additional antibiotic doses used by proportion of all moderate infections who receive treatment (5%, 25%, 50%, 75%, 100%) and R_e scenario (low, intermediate, high). The outcomes are split into three regions by the impact of expanded eligibility criteria: between the dashed line along the x-axis (expanding criteria averts no infections) and the diagonal dashed line (each addition dose of antibiotics deployed averts one infections), points colored yellow, in which expanded eligibility only has individual-level benefits; between the diagonal dashed line and the vertical dashed line (no additional doses are used to avert infections), points colored green, in which expanded eligibility results in each dose preventing more than one additional infection; and the region left of the vertical dashed line, points colored purple, in which expanded eligibility results in fewer doses used over the course of the outbreak than compared to current antibiotic treatment guidelines.
 
+
+### Abstract
+
+### Software implementation
+
+All source code used to generate the results and figures in the paper are in the `AppliedFrmwk/code` folder and instructions for running the model and generating the outputs are in the `README.md` file. 
+
+## A Theoretical Framework to Quantify the Tradeoff Between Individual and Population Benefits of Expanded Antibiotic Use
+
+by Cormac LaPrete, Sharia Ahmed, Damon Toth, Jody Reimer, Valerie Vaughn, Frederick Adler, Lindsay Keegan
+
+The global rise in antibiotic resistance poses a significant public health threat, that adds complexity to the clinical challenge of ensuring that the right antibiotic is prescribed to the right patient at the right dose for the right duration, to maximize benefits and minimize harm. Antibiotic resistance necessitates balancing the potential benefits and risks of antibiotic use for individual patients alongside broader implications for public health. While antibiotics have clear individual harms and benefits, it has been primarily thought that the impact of antibiotic prescribing at the population-level may be limited to the adverse effects of the development of resistence. Here, we propose that there may be scenarios under which prescribing antibiotics benefits public health; an idea absent from most antibiotic discourse (Figure 3).
+
+
+
+<div align="center">
+  <img src="images/F1.large.jpg" alt="Figure3" width="800"/>
+</div>
+Figure 3: Schematic of individual and population-level harms and benefits of antibiotic use. The horizontal axis describes the individual (patient-level) and population-level impacts and the vertical axis describes the benefits (positive impacts) and harms (negative impacts) of antibiotic usage.
+
+We demonstrate a mechanism by which antibiotic use can offer population-level benefits through reduced transmission as a result of antibiotic treatment. That is, treating highly infectious individuals who may not require treatment to recover can reduce overall disease transmission, resulting in fewer total cases and/or fewer total antibiotic doses over the course of an outbreak. We explore this using cholera as a case study. In this paper, we analytically solve for two thresholds to characterize these tradeoffs and use simulation to identify the conditions under which expanded antibiotic treatment to include moderate cholera infections presents a population-level benefit by reducing cholera transmission, outbreak persistence, and total antibiotic use. We identify the conditions under which these thresholds occur. We show that $$\mathcal{R}(q) \leq$$ $$\mathcal{R}$$$$_{opt}$$ $$= 1.424$$, below which treating moderate infections can reduce the effective reproductive number below 1, stopping the outbreak before it can spread (the outbreak prevention threshold [OPT]). Similarly, when $$\mathcal{R}(q = 0) \mathcal{R}_{dut} = 1.533$$, treating moderate infections results in fewer doses used over the course of the outbreak than under current treatment guidelines (the dose utilization threshold [DUT]) (Figure 4). Because the range of reproductive numbers for cholera outbreaks is 1.1-2.7, only outbreaks with low to intermediate reproductive numbers can benefit from expanded antibiotic treatment.
 
 
 
