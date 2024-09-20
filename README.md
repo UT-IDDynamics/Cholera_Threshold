@@ -1,5 +1,7 @@
 # Quantifying the Impact of Expanded Antibiotic Treatment on Cholera Outbreaks: A Theoretical and Applied Framework
 
+WHY WONT LATEX WORK $\sqrt{3x-1}+(1+x)^2$
+
 This project combines the theoretical and applied research from two studies to explore and quantify the effects of expanding antibiotic treatment to include moderately symptomatic cholera infections. 
 
 ## Overview
