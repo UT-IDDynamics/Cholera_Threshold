@@ -14,6 +14,8 @@ The project is divided into two main components:
 
 by Sharia Ahmed, Cormac LaPrete, Iza Ciglenecki, Andrew Azman, Daniel Leung, Lindsay Keegan
 
+This paper is in preparation.
+
 To assess the impact of expanded antibiotic treatment guidelines to include moderately symptomatic infections on cholera outbreaks, we simulate cholera transmission in a non-endemic setting using a compartmental model (Figure 1). Our objective was to assess how such a policy change could impact the overall burden of cholera as well the impact on antibiotic stewardship. We evaluate the impact treating moderately symptomatic infections with antibiotics different outbreak scenarios (varying $$R_e$$), different treatment-seeking scenarios (varying the proportion of moderate infections who seek treatment), and different treatment guidelines (varying the proportion of treatment-seeking moderate infections who recieve antibiotics). 
 
 <div align="center">
@@ -42,8 +44,9 @@ All source code used to generate the results and figures in the paper are in the
 
 by Cormac LaPrete, Sharia Ahmed, Damon Toth, Jody Reimer, Valerie Vaughn, Frederick Adler, Lindsay Keegan
 
-The global rise in antibiotic resistance poses a significant public health threat, that adds complexity to the clinical challenge of ensuring that the right antibiotic is prescribed to the right patient at the right dose for the right duration, to maximize benefits and minimize harm. Antibiotic resistance necessitates balancing the potential benefits and risks of antibiotic use for individual patients alongside broader implications for public health. While antibiotics have clear individual harms and benefits, it has been primarily thought that the impact of antibiotic prescribing at the population-level may be limited to the adverse effects of the development of resistence. Here, we propose that there may be scenarios under which prescribing antibiotics benefits public health; an idea absent from most antibiotic discourse (Figure 3).
+This paper has been submitted for publication in Bulletin of Mathematical Biology.
 
+The global rise in antibiotic resistance poses a significant public health threat, that adds complexity to the clinical challenge of ensuring that the right antibiotic is prescribed to the right patient at the right dose for the right duration, to maximize benefits and minimize harm. Antibiotic resistance necessitates balancing the potential benefits and risks of antibiotic use for individual patients alongside broader implications for public health. While antibiotics have clear individual harms and benefits, it has been primarily thought that the impact of antibiotic prescribing at the population-level may be limited to the adverse effects of the development of resistence. Here, we propose that there may be scenarios under which prescribing antibiotics benefits public health; an idea absent from most antibiotic discourse (Figure 3).
 
 
 <div align="center">
