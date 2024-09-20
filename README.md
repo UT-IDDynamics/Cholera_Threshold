@@ -69,6 +69,8 @@ The use of antibiotics during a disease outbreak presents a critical tradeoff be
 
 All source code used to generate the results and figures in the paper are in the `TheoryFrmwk/code` folder and instructions for running the model and generating the outputs are in the `README.md` file. 
 
+# Contact
+For inquiries, please contact lindsay.keegan@utah.edu
 
 
 
